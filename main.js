@@ -33,7 +33,7 @@ function Car(make, model) {
 const newCar = new Car("VW", "Golf");
 console.log(newCar);
 
-// CALL BIND APPLY
+// BIND
 
 var small = {
   a: 1,
@@ -49,51 +49,74 @@ small.go(2, 3, 4);
 var bindTest = small.go.bind(large, 2);
 console.log(bindTest);
 
-bindTest(3,4);
+bindTest(3, 4);
 
+/// BIND & PROTOTYPE
 
-  // ЗАМЫКАНИЯ
+let action1 = "sayHi",
+  action2 = "sayBy";
 
-    //В КОНСТРУКТОРЕ
+let user1 = {
+  firstName: "Sasha",
+  [action1](lorem) {
+    alert(`Hi, ${this.firstName}, ${lorem}`);
+  },
+  [action2](lorem2) {
+    alert(`Goodbye, ${this.firstName}, ${lorem2}`);
+  },
+};
+
+let user2 = {
+  firstName: "Diana",
+};
+
+user2.__proto__ = user1;
+
+user1[action1]("welcome!"); // > Sasha 
+
+user2[action1]("was prototyped"); // > Diana
+user1[action2].bind(user2)("was bound"); // > Diana
+
+// ЗАМЫКАНИЯ
+
+//В КОНСТРУКТОРЕ
 
 function NewUser(age) {
-  this.makeUser = function(name, surname) {
-    const greeting = `Hello, my name is ${name}, age ${age}, my surname is ${surname}`
+  this.makeUser = function (name, surname) {
+    const greeting = `Hello, my name is ${name}, age ${age}, my surname is ${surname}`;
     return {
-      greeting
-    }
-  }
+      greeting,
+    };
+  };
 }
 
-const userWithAge20 = new NewUser('20');
-console.log(userWithAge20.makeUser('Vasya', 'Pumpkin'));
-console.log(userWithAge20.makeUser('Danila', 'Bear'));
-
-/// 
-
-function newMan(age) {
-  return function(name,surname) {
-    const greeting = `Name is ${name}, Surname is ${surname}, Age is ${age}`
-    return {
-      greeting
-    }
-  }
-}
-
-const manWithAge20 = newMan(25);
-console.log(manWithAge20('Ivan', 'Garbushka'));
-console.log(manWithAge20('Petro', 'Pascalle'));
+const userWithAge20 = new NewUser("20");
+console.log(userWithAge20.makeUser("Vasya", "Pumpkin"));
+console.log(userWithAge20.makeUser("Danila", "Bear"));
 
 ///
 
-function newUserBind(name,surname,age) {
-  const greeting = `Name is ${name}, Surname is ${surname}, Age is ${age}`
-  return {
-    greeting
-  }
+function newMan(age) {
+  return function (name, surname) {
+    const greeting = `Name is ${name}, Surname is ${surname}, Age is ${age}`;
+    return {
+      greeting,
+    };
+  };
 }
 
-let bondedName = newUserBind.bind(null, 'Sasha');
-console.log(bondedName('Sosnov', '29'));
+const manWithAge20 = newMan(25);
+console.log(manWithAge20("Ivan", "Garbushka"));
+console.log(manWithAge20("Petro", "Pascalle"));
 
+///
 
+function newUserBind(name, surname, age) {
+  const greeting = `Name : ${name}, Surname : ${surname}, Age : ${age}`;
+  return {
+    greeting,
+  };
+}
+
+let bondedName = newUserBind.bind(null, "Sasha");
+console.log(bondedName("Sosnov", "29"));
