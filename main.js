@@ -7,20 +7,20 @@ function bind(func, ...args) {
 }
 
 function logPerson(name, mood, num) {
-  // console.log(name, mood, num);
   return `My name is: '${name}', i am: '${mood}', my nums are: '${num}'`;
 }
 
 const logPersonDianaNum = bind(logPerson, "Diana", "Happy");
+console.log(logPersonDianaNum("375295133421"));
 const logPersonSasha = bind(logPerson, "Sasha");
-console.log(logPersonDianaNum("375295138711"));
-console.log(logPersonSasha("Baddd", "339036554"));
+console.log(logPersonSasha("Baddd", "3392432454"));
 
-function summa(a, b, c) {
-  return a + b + c;
+function sumNum(a, b, c) {
+  let sumBound = `${a} + ${b} + ${c}`
+  return sumBound;
 }
 
-const summaAB = bind(summa, "10");
+const summaAB = bind(sumNum, "10");
 console.log(summaAB("30", "20"));
 
 // NEW
@@ -38,20 +38,20 @@ console.log(newCar);
 var small = {
   a: 1,
   go: function (b, c, d) {
-    console.log(this.a + b + c + d);
+    console.log(`Small/large sum: ${this.a + b + c + d}`);
   },
 };
+
 var large = {
   a: 100,
 };
+
 small.go(2, 3, 4);
 
-var bindTest = small.go.bind(large, 2);
-console.log(bindTest);
-
+var bindTest = small.go.bind(large, 2); // > function (b, c, d) {console.log(this.a + b + c + d)}
 bindTest(3, 4);
 
-/// BIND & PROTOTYPE
+/// OBJECT & BIND & PROTOTYPE
 
 let action1 = "sayHi",
   action2 = "sayBy";
@@ -59,10 +59,12 @@ let action1 = "sayHi",
 let user1 = {
   firstName: "Sasha",
   [action1](lorem) {
-    alert(`Hi, ${this.firstName}, ${lorem}`);
+    // alert
+    `Hi, ${this.firstName}, ${lorem}`;
   },
   [action2](lorem2) {
-    alert(`Goodbye, ${this.firstName}, ${lorem2}`);
+    // alert
+    `Goodbye, ${this.firstName}, ${lorem2}`;
   },
 };
 
@@ -72,7 +74,7 @@ let user2 = {
 
 user2.__proto__ = user1;
 
-user1[action1]("welcome!"); // > Sasha 
+user1[action1]("welcome!"); // > Sasha
 
 user2[action1]("was prototyped"); // > Diana
 user1[action2].bind(user2)("was bound"); // > Diana
@@ -90,9 +92,8 @@ function NewUser(age) {
   };
 }
 
-const userWithAge20 = new NewUser("20");
-console.log(userWithAge20.makeUser("Vasya", "Pumpkin"));
-console.log(userWithAge20.makeUser("Danila", "Bear"));
+const userWithAge = new NewUser("20");
+console.log(userWithAge.makeUser("Vasya", "Pumpkin"));
 
 ///
 
@@ -106,8 +107,7 @@ function newMan(age) {
 }
 
 const manWithAge20 = newMan(25);
-console.log(manWithAge20("Ivan", "Garbushka"));
-console.log(manWithAge20("Petro", "Pascalle"));
+console.log(manWithAge20("Petro", "La Pistola"));
 
 ///
 
