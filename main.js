@@ -16,7 +16,7 @@ const logPersonSasha = bind(logPerson, "Sasha");
 console.log(logPersonSasha("Baddd", "3392432454"));
 
 function sumNum(a, b, c) {
-  let sumBound = `${a} + ${b} + ${c}`
+  let sumBound = `${a} + ${b} + ${c}`;
   return sumBound;
 }
 
@@ -120,3 +120,28 @@ function newUserBind(name, surname, age) {
 
 let bondedName = newUserBind.bind(null, "Sasha");
 console.log(bondedName("Sosnov", "29"));
+
+/// CLASS
+
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    if (value.length < 5) {
+      console.log(`Имя слишком короткое, введите ещё ${5 - value.length} символа `);
+      return;
+    }
+    this._name = value;
+  }
+}
+
+let classUser = new User("Sas");
+let classUSer2 = new User("Sasha");
+console.log(classUSer2.name);
+
