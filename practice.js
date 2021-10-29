@@ -24,11 +24,11 @@ let calculator = {
     this.num2 = b;
   },
   sum() {
-    let toLog = `Sum: ${this.num1 + this.num2}`
+    let toLog = `Sum: ${this.num1 + this.num2}`;
     return toLog;
   },
   mul() {
-    let toLog = `Mul: ${this.num1 * this.num2}`
+    let toLog = `Mul: ${this.num1 * this.num2}`;
     return toLog;
   },
 };
@@ -36,26 +36,6 @@ let calculator = {
 calculator.read(2, 9);
 console.log(calculator.sum());
 console.log(calculator.mul());
-
-///
-
-let ladder = {
-  step: 0,
-  up() {
-    this.step++;
-    return this;
-  },
-  down() {
-    this.step--;
-    return this;
-  },
-  showStep: function () {
-    console.log(`U are on the step ${this.step}`);
-    return this;
-  },
-};
-
-ladder.up().up().up().up().down().showStep();
 
 ///
 
@@ -71,8 +51,22 @@ accum.add(6);
 accum.add(100);
 console.log(`Value is ${accum.value}%`);
 
+///
 
-/// 
+
+function revStr(str){
+  if (str === '') return '';
+  return revStr(str.substr(1)) + str[0];
+}
+console.log(revStr('Sasha')); 
 
 
+function pow(x, n) {
+  if (n < 0) return;
+  if (n == 0) return 1;
+  return x * pow(x, n-1);
+}
+
+
+console.log(pow(2,5));
 

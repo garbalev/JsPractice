@@ -62,6 +62,7 @@ let user1 = {
     // alert
     `Hi, ${this.firstName}, ${lorem}`;
   },
+
   [action2](lorem2) {
     // alert
     `Goodbye, ${this.firstName}, ${lorem2}`;
@@ -84,6 +85,7 @@ user1[action2].bind(user2)("was bound"); // > Diana
 //В КОНСТРУКТОРЕ
 
 function NewUser(age) {
+  
   this.makeUser = function (name, surname) {
     const greeting = `Hello, my name is ${name}, age ${age}, my surname is ${surname}`;
     return {
@@ -93,7 +95,9 @@ function NewUser(age) {
 }
 
 const userWithAge = new NewUser("20");
+
 console.log(userWithAge.makeUser("Vasya", "Pumpkin"));
+
 
 ///
 
@@ -106,8 +110,9 @@ function newMan(age) {
   };
 }
 
-const manWithAge20 = newMan(25);
-console.log(manWithAge20("Petro", "La Pistola"));
+const manWithAge25 = newMan(25);
+const manWithAge16 = newMan(16);
+console.log(manWithAge25("Petro", "La Pistola"));
 
 ///
 
@@ -144,4 +149,45 @@ class User {
 let classUser = new User("Sas");
 let classUSer2 = new User("Sasha");
 console.log(classUSer2.name);
+
+/// Promises
+
+let sum = 0;
+
+function qwerty (num1, num2) {
+  sum = num1 + num2;
+  // console.log(`первое ${sum}`);
+  return sum;
+}
+
+function qwerty2 () {
+  sum = qwerty(2, 3) * 2;
+  console.log(`второе ${sum}`);
+}
+
+function qwerty3 () {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      sum *= 3;
+      console.log(`третье ${sum}`);
+      resolve(console.log('(promise2)'));
+    }, 2000);
+  })
+  
+
+}
+
+function qwerty4 () {
+  sum*= 4;
+  console.log(`четвёртое ${sum}`);
+};
+
+let qwerty1000 = new Promise((resolve) => {
+    setTimeout(function () {
+      console.log(`первое ${qwerty(2, 3)}`);
+      resolve(console.log('(promise1)'));
+    }, 2000);
+  })
+
+qwerty1000.then().then(qwerty2).then(qwerty3).then().then(qwerty4);
 
