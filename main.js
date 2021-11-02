@@ -165,6 +165,7 @@ function qwerty2 () {
   console.log(`второе ${sum}`);
 }
 
+
 function qwerty3 () {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -172,10 +173,8 @@ function qwerty3 () {
       console.log(`третье ${sum}`);
       resolve(console.log('(promise2)'));
     }, 2000);
-  })
-  
+  })}
 
-}
 
 function qwerty4 () {
   sum*= 4;
@@ -191,3 +190,27 @@ let qwerty1000 = new Promise((resolve) => {
 
 qwerty1000.then().then(qwerty2).then(qwerty3).then().then(qwerty4);
 
+///
+
+let fruits = {
+  banana: {
+    color: "yellow",
+    weight: "200g",
+  },
+  apple: {
+    color: "red",
+    weight: "250g",
+  },
+  pear: {
+    color: "green",
+    weight: "150g",
+  },
+};
+
+let bananaFruit = fruits.banana;
+
+let fruitPrices = new Map();
+fruitPrices.set(bananaFruit, 20);
+fruitPrices.set(fruits.apple, 10);
+fruitPrices.set(fruits.pear, 15);
+alert(fruitPrices.get(fruits.banana));
