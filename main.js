@@ -215,6 +215,7 @@ fruitPrices.set(fruits.apple, 10);
 fruitPrices.set(fruits.pear, 15);
 console.log(fruitPrices.get(fruits.banana));
 
+
   //
 
 const fruitsArray = ['apple', 'pineapple', 'pear', 'peach', 'apple', 'peach'];
@@ -243,3 +244,36 @@ let sortedArray = new Map();
   console.log(Array.from(sortedArray.values()));
 };
 wordsFilter(unsortedArray);
+
+
+/// Destructuring assignment
+
+let fruitsAndVeges = ['apple', 'pear', 'peach', 'carrot',  'lettuce', 'tomato'];
+
+let [fruit1,fruit2,fruit3,...veges ] = fruitsAndVeges;
+let frutties = fruitsAndVeges.slice(0, 3);
+let [vege1, vege2, vege3] = veges;
+// alert(`
+//       ['apple', 'pear', 'peach', 'carrot',  'lettuce', 'tomato'];
+//       veges: ${veges} & frutties: ${frutties};
+//       1st fruit: ${fruit1}, 2nd fruit: ${fruit2}, 3rd fruit: ${fruit3};
+//       1st vege: ${vege1}, 2nd vege: ${vege2}, 3rd vege: ${vege3}`
+//       );
+
+
+
+let man = {
+  age: '25',
+  height: '2m',
+  name: 'Alexa',
+  preferences: ['football', 'gym', 'hockey'],
+}
+
+let { 
+  age: a, 
+  height: h, 
+  name: n, 
+  preferences: hobbies, 
+  preferences: [footB, ...otherHobbies]
+} = man;
+
