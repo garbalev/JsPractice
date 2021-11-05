@@ -1,27 +1,3 @@
-// function bind
-
-function bind(func, ...args) {
-  return function (...param) {
-    return func(...args, ...param);
-  };
-}
-
-function logPerson(name, mood, num) {
-  return `My name is: '${name}', i am: '${mood}', my nums are: '${num}'`;
-}
-
-const logPersonDianaNum = bind(logPerson, "Diana", "Happy");
-console.log(logPersonDianaNum("375295133421"));
-const logPersonSasha = bind(logPerson, "Sasha");
-console.log(logPersonSasha("Baddd", "3392432454"));
-
-function sumNum(a, b, c) {
-  let sumBound = `${a} + ${b} + ${c}`;
-  return sumBound;
-}
-
-const summaAB = bind(sumNum, "10");
-console.log(summaAB("30", "20"));
 
 // NEW
 
@@ -179,10 +155,12 @@ function qwerty3 () {
 function qwerty4 () {
   sum*= 4;
   console.log(`четвёртое ${sum}`);
+  console.log('--end--');
 };
 
 let qwerty1000 = new Promise((resolve) => {
     setTimeout(function () {
+      console.log('--start--');
       console.log(`первое ${qwerty(2, 3)}`);
       resolve(console.log('(promise1)'));
     }, 2000);
@@ -270,10 +248,15 @@ let man = {
 }
 
 let { 
-  age: a, 
+  // age: a, 
   height: h, 
   name: n, 
   preferences: hobbies, 
   preferences: [footB, ...otherHobbies]
 } = man;
+
+
+
+
+
 
