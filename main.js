@@ -244,11 +244,17 @@ let man = {
   age: '25',
   height: '2m',
   name: 'Alexa',
+  sayAloha() {
+    alert(this.name);
+  },
   preferences: ['football', 'gym', 'hockey'],
 }
 
+// let alohaha = man.sayAloha();
+// alohaha();
+
 let { 
-  // age: a, 
+  age: a, 
   height: h, 
   name: n, 
   preferences: hobbies, 

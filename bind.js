@@ -51,11 +51,36 @@ function bindArgsAndContext(func, context, ...args) {
   return function (...param) {
     const contextKey = Date.now().toString();
     context[contextKey] = func;
-    // console.log(context[contextKey]());
-    let newFunc = context[contextKey];
-    return context[contextKey](...args, ...param);
+    const result = context[contextKey](...args, ...param);
+    delete context[contextKey];
+    return result;
   };
 }
 
-const boundArg1 = bindArgsAndContext(funcForBind, objForBind2, 'аргумент1');
-alert(boundArg1('аргумент2'));
+const bounded = bindArgsAndContext(funcForBind, objForBind2, 'аргумент1');
+// alert(bounded('аргумент2'));
+// alert(bounded('аргумент22'));
+
+//4/ func bind(using .apply)
+
+function bindWithApply(func, context, ...args) {
+  return function(...param) {
+    return func.apply(context, args.concat(param));
+  }
+}
+
+
+// let arrSup = ['one', 'two', 'three', 'four'];
+// console.log(...arrSup);
+
+/// func call
+
+function call(func, context, ...args) {
+  const contextKey = Date.now().toString();
+  context[contextKey] = func;
+  const result = context[contextKey](...args);
+  delete context[contextKey];
+  return result;
+}
+
+alert(call(funcForBind, objForBind2, 'аргумент1'));
