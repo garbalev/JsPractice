@@ -83,4 +83,18 @@ function call(func, context, ...args) {
   return result;
 }
 
-alert(call(funcForBind, objForBind2, 'аргумент1'));
+// alert(call(funcForBind, objForBind2, 'аргумент1'));
+
+/// func apply
+
+function apply(func, context, array) {
+  const contextKey = Date.now().toString();
+  context[contextKey] = func;
+  const result = context[contextKey](...array);
+  delete context[contextKey];
+  return result;
+};
+
+let argsArray = ['аргумент1', 'аргумент2'];
+
+alert(apply(funcForBind, objForBind2, ['аргумент1', 'аргумент2']));

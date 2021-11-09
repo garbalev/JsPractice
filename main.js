@@ -250,8 +250,6 @@ let man = {
   preferences: ['football', 'gym', 'hockey'],
 }
 
-// let alohaha = man.sayAloha();
-// alohaha();
 
 let { 
   age: a, 
