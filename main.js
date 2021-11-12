@@ -115,7 +115,7 @@ class User {
 
   set name(value) {
     if (value.length < 5) {
-      console.log(`Имя слишком короткое, введите ещё ${5 - value.length} символа `);
+      console.log(`Имя '${value}' слишком короткое, введите ещё ${5 - value.length} символ/а `);
       return;
     }
     this._name = value;
@@ -123,50 +123,9 @@ class User {
 }
 
 let classUser = new User("Sas");
-let classUSer2 = new User("Sasha");
-console.log(classUSer2.name);
+let classUSer2 = new User("sasha");
+console.log(classUSer2);
 
-/// Promises
-
-let sum = 0;
-
-function qwerty (num1, num2) {
-  sum = num1 + num2;
-  // console.log(`первое ${sum}`);
-  return sum;
-}
-
-function qwerty2 () {
-  sum = qwerty(2, 3) * 2;
-  console.log(`второе ${sum}`);
-}
-
-
-function qwerty3 () {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      sum *= 3;
-      console.log(`третье ${sum}`);
-      resolve(console.log('(promise2)'));
-    }, 2000);
-  })}
-
-
-function qwerty4 () {
-  sum*= 4;
-  console.log(`четвёртое ${sum}`);
-  console.log('--end--');
-};
-
-let qwerty1000 = new Promise((resolve) => {
-    setTimeout(function () {
-      console.log('--start--');
-      console.log(`первое ${qwerty(2, 3)}`);
-      resolve(console.log('(promise1)'));
-    }, 2000);
-  })
-
-qwerty1000.then().then(qwerty2).then(qwerty3).then().then(qwerty4);
 
 /// Map & Set
 
@@ -231,12 +190,7 @@ let fruitsAndVeges = ['apple', 'pear', 'peach', 'carrot',  'lettuce', 'tomato'];
 let [fruit1,fruit2,fruit3,...veges ] = fruitsAndVeges;
 let frutties = fruitsAndVeges.slice(0, 3);
 let [vege1, vege2, vege3] = veges;
-// alert(`
-//       ['apple', 'pear', 'peach', 'carrot',  'lettuce', 'tomato'];
-//       veges: ${veges} & frutties: ${frutties};
-//       1st fruit: ${fruit1}, 2nd fruit: ${fruit2}, 3rd fruit: ${fruit3};
-//       1st vege: ${vege1}, 2nd vege: ${vege2}, 3rd vege: ${vege3}`
-//       );
+
 
 
 
