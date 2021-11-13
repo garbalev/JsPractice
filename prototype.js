@@ -1,20 +1,32 @@
-// function Person(firstName, lastName) {
-//   this.firstName = firstName;
-//   this.surname = lastName;
-// }
+const Animal = function(args) {
+    this.name = args.name;
+    this.color = args.color;
+}
 
-// Person.prototype.sayHello = function () {alert(this.firstName + this.surname)};
+Animal.prototype.voice = function() {
+    alert(`${this.name} is ${this.color}`);
+}
 
-// let persone1 = new Person('Alex', 'G');
+const animal1 = new Animal({name: 'Snezhok', color: 'black'});
 
-// function Teacher(firstName, lastName, subj) {
-//   this.subject = subj;
-//   Person.call(this, firstName, lastName);
-// }
 
-// Teacher.prototype = Object.create(Person.prototype);
+const Cat = function(args) {
+    Animal.call(this, args);
+    this.type = 'cat';
+    this.tailLength = args.tail;
+} 
 
-// let teach1 = new Teacher('Teacher', '1', 'subject1');
+Cat.prototype = Object.create(Animal.prototype)
+Cat.prototype.constructor = Cat;
+Cat.prototype.voice = function() {
+    Animal.prototype.voice.call(this);
+    alert(`Cat name: ${this.name}, tail size: ${this.tailLength}`)
+}
+
+const cat1 = new Cat({name: 'Murzik', color: 'White', tail: 'medium'});
+
+console.log(cat1);
+
 
 /// Classes
 class Student {
@@ -30,7 +42,7 @@ class Student {
 }
 
 const student1 = new Student("Alex", "Gar");
-
+console.log(student1);
 class Teacher extends Student {
   static type = "TEACHER";
   constructor(firstName, lastName, subj) {
