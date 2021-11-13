@@ -214,7 +214,27 @@ let {
 } = man;
 
 
+/// 
 
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.surname = lastName;
+  // this.sayHello = () => {alert(this.firstName + this.surname)}
+}
 
+Person.prototype.sayHello = function () {alert(this.firstName + this.surname)}; 
 
+let persone1 = new Person('Alex', 'G');
 
+// console.log(persone1);
+
+function Teacher(firstName, lastName, subj) {
+  this.subject = subj;
+  Person.call(this, firstName, lastName);
+}
+
+Teacher.prototype = Object.create(Person.prototype);
+
+let teach1 = new Teacher('Teacher', '1', 'subject1');
+
+// console.dir(teach1);
