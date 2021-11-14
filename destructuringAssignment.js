@@ -23,3 +23,5 @@ let {
   preferences: hobbies,
   preferences: [footB, ...otherHobbies],
 } = man;
+
+
