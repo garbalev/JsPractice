@@ -42,7 +42,7 @@ class Student {
 }
 
 const student1 = new Student("Alex", "Gar");
-console.log(student1);
+
 class Teacher extends Student {
   static type = "TEACHER";
   constructor(firstName, lastName, subj) {
@@ -60,7 +60,7 @@ class Teacher extends Student {
 }
 
 const teacher1 = new Teacher("Teacher", "1", "math");
-
+console.log(teacher1);
 
 /// OBJECT & PROTOTYPE
 
