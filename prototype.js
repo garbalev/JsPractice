@@ -1,32 +1,30 @@
-const Animal = function(args) {
-    this.name = args.name;
-    this.color = args.color;
-}
+const Animal = function (args) {
+  this.name = args.name;
+  this.color = args.color;
+};
 
-Animal.prototype.voice = function() {
-    alert(`${this.name} is ${this.color}`);
-}
+Animal.prototype.voice = function () {
+  alert(`${this.name} is ${this.color}`);
+};
 
-const animal1 = new Animal({name: 'Snezhok', color: 'black'});
+Animal.prototype.hey = "aloha amigos";
 
+const animal1 = new Animal({ name: "Snezhok", color: "black" });
 
-const Cat = function(args) {
-    Animal.call(this, args);
-    this.type = 'cat';
-    this.tailLength = args.tail;
-} 
+const Cat = function (args) {
+  Animal.call(this, args);
+  this.type = "cat";
+  this.tailLength = args.tail;
+};
 
-Cat.prototype = Object.create(Animal.prototype)
+Cat.prototype = Object.create(Animal.prototype);
 Cat.prototype.constructor = Cat;
-Cat.prototype.voice = function() {
-    Animal.prototype.voice.call(this);
-    alert(`Cat name: ${this.name}, tail size: ${this.tailLength}`)
-}
+Cat.prototype.voice = function () {
+  Animal.prototype.voice.call(this);
+  alert(`Cat name: ${this.name}, tail size: ${this.tailLength}`);
+};
 
-const cat1 = new Cat({name: 'Murzik', color: 'White', tail: 'medium'});
-
-console.log(cat1);
-
+const cat1 = new Cat({ name: "Murzik", color: "White", tail: "medium" });
 
 /// Classes
 class Student {
@@ -39,6 +37,7 @@ class Student {
   sayHello() {
     alert(this.name + this.surname);
   }
+  prop = "hey";
 }
 
 const student1 = new Student("Alex", "Gar");
@@ -47,7 +46,7 @@ class Teacher extends Student {
   static type = "TEACHER";
   constructor(firstName, lastName, subj) {
     super(firstName, lastName);
-    this.subject = subj;
+    this._subject = subj;
   }
   sayHello() {
     super.sayHello();
@@ -55,12 +54,11 @@ class Teacher extends Student {
   }
 
   get subjectInfo() {
-    alert(`Subject: '${this.subject}'`);
+    alert(`Subject: '${this._subject}'`);
   }
 }
 
-const teacher1 = new Teacher("Teacher", "1", "math");
-console.log(teacher1);
+const teacher1 = new Teacher("teacher", "1", "math");
 
 /// OBJECT & PROTOTYPE
 
