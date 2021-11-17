@@ -44,12 +44,34 @@ function revStrPreserveOrder(str) {
 console.log(revStrPreserveOrder(string));
 
 /// REVERSE ONLY UPPERCASE WORDS
-
-
 function revStrPreserveOrderUpper(str) {
-  let newStr = str.replace(/\b[A-Z][a-z]+\b/g, (str) => [...str].reverse().join(""));
+  let newStr = str.replace(/\b[A-Z]\w+\b/g, (str) => [...str].reverse().join(""));
   return newStr;
 }
 
-console.log(revStrPreserveOrderUpper(string));
+console.log(revStrPreserveOrderUpper("Hello, my NAME is Alex, i am fine, i am 123"));
 
+/// FIND ALL WORDS AND NUMBERS IN THE STRING
+function allWordsAndNumbersInString(str) {
+  // let newStr = str.replace(/\W+/g, ' ').split(' ');
+  // let newStr = str.match(/\w+/g);
+  let newStr = str.split(/\b\W+/);
+  return newStr;
+}
+
+console.log(allWordsAndNumbersInString(string));
+
+/// FIND THE LONGEST WORD IN THE STRING
+function theLongestwordInTheString(str) {
+  let sortedStr = str.match(/\b\w+/g);
+  console.log(sortedStr);
+  let theLongestWord = '';
+  for (let word of sortedStr) {
+    if (word.length > theLongestWord.length) {
+      theLongestWord = word;
+    }
+  }
+  return theLongestWord;
+}
+
+console.log(theLongestwordInTheString("Hello, my name is Alex, i am amazing, i am 123"));
