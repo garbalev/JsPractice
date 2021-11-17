@@ -3,8 +3,9 @@ let string = "Hello, my name is Alex, i am fine, i am 123";
 //1 USING RECURSION
 function revStrWithRecursion(str) {
   if (str === "") return "";
-  return revStrWithRecursion(str.substr(1)) + str[0];
+  return revStrWithRecursion(str.substring(1)) + str[0];
 }
+
 console.log(revStrWithRecursion(string));
 
 //2 USING ARRAY
@@ -41,3 +42,14 @@ function revStrPreserveOrder(str) {
 }
 
 console.log(revStrPreserveOrder(string));
+
+/// REVERSE ONLY UPPERCASE WORDS
+
+
+function revStrPreserveOrderUpper(str) {
+  let newStr = str.replace(/\b[A-Z][a-z]+\b/g, (str) => [...str].reverse().join(""));
+  return newStr;
+}
+
+console.log(revStrPreserveOrderUpper(string));
+

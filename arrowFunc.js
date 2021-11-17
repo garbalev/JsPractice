@@ -41,7 +41,7 @@ function argumentsUndefined() {
 
 // argumentsUndefined()('arg1','arg2')
 
-function argumentsDefined(arg = 'hello') {
+function argumentsDefined() {
     return () => {
         console.log(arguments);
     }

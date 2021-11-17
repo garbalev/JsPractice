@@ -31,6 +31,8 @@ console.log(summaAB("30", "20"));
 
 //3/ func bind(bound args & context)
 
+// context = null &&&
+
 let objForBind = {
   name: "Alexander",
   age: "twenty",
@@ -56,6 +58,7 @@ function bindArgsAndContext(func, context, ...args) {
     return result;
   };
 }
+
 
 const bounded = bindArgsAndContext(funcForBind, objForBind2, "аргумент1");
 // alert(bounded('аргумент2'));
