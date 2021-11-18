@@ -37,41 +37,67 @@ console.log(secondRevStrWithLoop(string));
 
 //5 REVERSE WORDS, NOT SCTRING
 function revStrPreserveOrder(str) {
-  let newStr = str.replace(/\w+/gi, (str) => [...str].reverse().join(""));
+  let newStr = str.replace(/[\w`]+/gi, (word) => [...word].reverse().join(""));
   return newStr;
 }
 
-console.log(revStrPreserveOrder(string));
+console.log(revStrPreserveOrder("Hello, my NAME is Alex, I`m fine, i am 123"));
 
-/// REVERSE ONLY UPPERCASE WORDS
+/// REVERSE ONLY WORDS STARTED WITH UPPERCASE LETTER
 function revStrPreserveOrderUpper(str) {
-  let newStr = str.replace(/\b[A-Z]\w+\b/g, (str) => [...str].reverse().join(""));
+  let newStr = str.replace(/\b[A-Z][\w`]+\b/g, (word) =>
+    [...word].reverse().join("")
+  );
   return newStr;
 }
 
-console.log(revStrPreserveOrderUpper("Hello, my NAME is Alex, i am fine, i am 123"));
+console.log(
+  revStrPreserveOrderUpper("Hello, my NAME is Alex, I`m fine, i am 123")
+);
 
 /// FIND ALL WORDS AND NUMBERS IN THE STRING
 function allWordsAndNumbersInString(str) {
-  // let newStr = str.replace(/\W+/g, ' ').split(' ');
-  // let newStr = str.match(/\w+/g);
-  let newStr = str.split(/\b\W+/);
+  // let newStr = str.replace(/,|\./g, '').split(' ');
+  let newStr = str.match(/\b[\w`]+\b/g);
+  // let newStr = str.split(/,*\s/);
   return newStr;
 }
 
-console.log(allWordsAndNumbersInString(string));
+console.log(
+  allWordsAndNumbersInString("Hello, my name is Alex, i`m amazing, i am 123.")
+);
 
-/// FIND THE LONGEST WORD IN THE STRING
-function theLongestwordInTheString(str) {
-  let sortedStr = str.match(/\b\w+/g);
-  console.log(sortedStr);
-  let theLongestWord = '';
+/// FIND THE LONGEST WORD IN THE STRING WITH LOOP
+function theLongestwordInTheStringWithLoop(str) {
+  let sortedStr = str.match(/\b[\w`]+\b/g);
+  // console.log(sortedStr);
+  let theLongestWord = "";
   for (let word of sortedStr) {
     if (word.length > theLongestWord.length) {
       theLongestWord = word;
     }
   }
-  return theLongestWord;
+  return theLongestWord + ", " + theLongestWord.length;
 }
 
-console.log(theLongestwordInTheString("Hello, my name is Alex, i am amazing, i am 123"));
+console.log(
+  theLongestwordInTheStringWithLoop(
+    "Hello, my name is Alex, i am amazing, i am 123"
+  )
+);
+
+/// FIND THE LONGEST WORD IN THE STRING WITH .SORT
+function theLongestwordInTheStringWithSorting(str) {
+  let sortedStr = str.match(/\b[\w`]+\b/g);
+  sortedStr.sort((a, b) => b.length - a.length);
+  return sortedStr[0] + ", " + sortedStr[0].length;
+}
+
+console.log(
+  theLongestwordInTheStringWithSorting(
+    "Hello, my name is Alex, i am amazing, i am 123"
+  )
+);
+
+/// FIND THE LONGEST WORD IN THE STRING WITH .SORT
+
