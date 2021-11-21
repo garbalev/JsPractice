@@ -136,13 +136,12 @@ function theLongestRepeatingChar(str) {
 
 console.log(theLongestRepeatingChar("aaabbbb ccc ,, d eeff ..."));
 
-// let arrayForChars = [];
-// for (let i = 0; i < str1.length; i++) {
-//   if (str1[i] === str1[i+1]) {
-//     arrayForChars.push(str1[i], str1[i+1]);
-//   }
-
-// }
+let arrayForChars = [];
+for (let i = 0; i < str1.length; i++) {
+  if (str1[i] === str1[i+1]) {
+    arrayForChars.push(str1[i], str1[i+1]);
+ 
+}}
 // console.log(arrayForChars);
 
 // console.log('a');
