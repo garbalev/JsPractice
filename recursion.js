@@ -17,3 +17,9 @@ function pow(x, n) {
 
 console.log(pow(2,5));
 
+function fac1(num) {
+  if (num === 0) {
+    return 1;
+  }
+  return num * fac1(num - 1);
+}
