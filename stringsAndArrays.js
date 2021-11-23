@@ -81,9 +81,7 @@ function theLongestwordWithLoop(str) {
 }
 
 console.log(
-  theLongestwordWithLoop(
-    "Hello, my name is Alex, i am amazing, i am 123"
-  )
+  theLongestwordWithLoop("Hello, my name is Alex, i am amazing, i am 123")
 );
 
 /// FIND THE LONGEST WORD IN THE STRING WITH .SORT
@@ -94,9 +92,7 @@ function theLongestwordWithSorting(str) {
 }
 
 console.log(
-  theLongestwordWithSorting(
-    "Hello, my name is Alex, i am amazing, i am 123"
-  )
+  theLongestwordWithSorting("Hello, my name is Alex, i am amazing, i am 123")
 );
 
 /// FIND THE LONGEST WORD IN THE STRING WITH .REDUCE
@@ -109,9 +105,7 @@ function theLongestwordWithReducing(str) {
 }
 
 console.log(
-  theLongestwordWithReducing(
-    "Hello, my name is Alex, i am amazing, i am 123"
-  )
+  theLongestwordWithReducing("Hello, my name is Alex, i am amazing, i am 123")
 );
 
 /// FIND THE LONGEST WORD IN THE STRING WITH .MAP AND .MAX
@@ -122,9 +116,7 @@ function theLongestwordWithMapAndMax(str) {
 }
 
 console.log(
-  theLongestwordWithMapAndMax(
-    "Hello, my name is Alex, i am amazing, i am 123"
-  )
+  theLongestwordWithMapAndMax("Hello, my name is Alex, i am amazing, i am 123")
 );
 
 /// FIND THE LONGEST REPEATING CHARACTER IN THE STRING
@@ -136,11 +128,49 @@ function theLongestRepeatingChar(str) {
 
 console.log(theLongestRepeatingChar("aaabbbb ccc ,, d eeff ..."));
 
+/// REMOVE ONLY FALSY VALUES
+function onlyTrue(arr) {
+  return arr.filter((el) => !!el);
+}
+
+///1 RETURN INDEX AT WHICH A VALUE SHOULD BE INSERTED INTO AN ARRAY
+function getIndexToIns1(arr, num) {
+  return arr.filter((i) => i < num).length;
+}
+
+///2
+function getIndexToIns(arr, num) {
+  let final = [];
+  arr.forEach((el, index) => {
+    if (el < num) {
+      final.push(index);
+    }
+  });
+  return final.length;
+}
+
+///3
+function getIndexToIns3(arr, num) {
+  arr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= num) return i;
+  }
+  return arr.length;
+}
+
+///4
+function getIndexToIns4(arr, num) {
+  return arr
+    .concat(num)
+    .sort((a, b) => a - b)
+    .indexOf(num);
+}
+
 // let arrayForChars = [];
 // for (let i = 0; i < str1.length; i++) {
 //   if (str1[i] === str1[i+1]) {
 //     arrayForChars.push(str1[i], str1[i+1]);
- 
+
 // }}
 // console.log(arrayForChars);
 
