@@ -66,3 +66,17 @@ async function fetching() {
 }
 
 fetching().catch(err => console.error(err));
+
+
+console.log('hello');
+setTimeout(function () {
+  console.log('timeOut');
+}, 0);
+Promise.resolve()
+  .then(function () {
+    console.log('promise1');
+  })
+  .then(function () {
+    console.log('promise2');
+  });
+console.log('bye');

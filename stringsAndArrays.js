@@ -175,3 +175,13 @@ function getIndexToIns4(arr, num) {
 // console.log(arrayForChars);
 
 // console.log('a');
+
+
+// COMPOSITION
+const upper = str => str.toUpperCase();
+const splitting = str => str.split(' ');
+const reverse = arr => arr.reverse();
+
+const compose = (...fns) => x => fns.reduce((acc, fn) => fn(acc), x);
+const composedFns = compose(upper, splitting, reverse);
+console.log(composedFns('My name is Alex'));
