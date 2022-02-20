@@ -3,6 +3,7 @@ const Animal = function (args) {
   this.color = args.color;
 };
 
+console.log(Animal.prototype);
 
 Animal.prototype.voice = function () {
   alert(`${this.name} is ${this.color}`);
@@ -109,20 +110,6 @@ user1[action1]("welcome!"); // > Sasha
 user2[action1]("was prototyped"); // > Diana
 user1[action2].bind(user2)("was bound"); // > Diana
 
-
-
-console.log('hello');
-setTimeout(function () {
-  console.log('timeOut');
-}, 0);
-Promise.resolve()
-  .then(function () {
-    console.log('promise1');
-  })
-  .then(function () {
-    console.log('promise2');
-  });
-console.log('bye');
 
 
 
