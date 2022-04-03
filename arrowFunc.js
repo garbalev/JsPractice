@@ -2,7 +2,7 @@ const nameUndefined = {
     name: 'OBJECTE1',
     sayHello: function() {
         setTimeout(function() {
-            alert(this.name);
+            alert(this);
         })
     }
 }
@@ -35,7 +35,7 @@ const object11 = {
 
 function argumentsUndefined() {
     return function() {
-        console.log(arguments);
+        alert(arguments);
     }
 }
 
@@ -48,3 +48,18 @@ function argumentsDefined() {
 }
 
 // argumentsDefined('arg1','arg2')()
+
+
+function hey1 () {
+    console.log(this);
+}
+
+
+const hey2 = () => {
+    console.log(this);
+}
+
+hey1();
+hey2();
+
+

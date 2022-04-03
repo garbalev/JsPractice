@@ -185,3 +185,19 @@ const reverse = arr => arr.reverse();
 const compose = (...fns) => x => fns.reduce((acc, fn) => fn(acc), x);
 const composedFns = compose(upper, splitting, reverse);
 console.log(composedFns('My name is Alex'));
+
+//FIND ALL REPEATING CHARACTERS IN STRINGS
+
+function str22(arr) {
+  return arr.reduce((prev, cur, i) => {
+       let str = '';
+       for (let l of prev.split('')) {
+           if (cur.includes(l)) {
+               str += l;
+           }
+       }
+       return str
+   })
+}
+
+console.log(str22(['ABCDEFZ', 'WBCDXYZ']))

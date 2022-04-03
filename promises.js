@@ -80,3 +80,6 @@ Promise.resolve()
     console.log('promise2');
   });
 console.log('bye');
+
+let surname = 'garbalev';
+console.log('max ' + surname)

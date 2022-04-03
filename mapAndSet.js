@@ -21,7 +21,7 @@ let fruitPrices = new Map();
 fruitPrices.set(bananaFruit, 20);
 fruitPrices.set(fruits.apple, 10);
 fruitPrices.set(fruits.pear, 15);
-console.log(fruitPrices.get(fruits.banana));
+console.log(fruitPrices);
 
 //
 
@@ -30,11 +30,13 @@ const namesArray = ["Alex", "Diana", "Petro", "Alex", "Diana"];
 
 let uniqueElements = (array) => {
   const set = new Set(array);
-  console.log(Array.from(set));
+  console.log(set);
 };
 
 uniqueElements(fruitsArray);
 uniqueElements(namesArray);
+
+console.log(...{a:20, b:30}); 
 
 ///
 
